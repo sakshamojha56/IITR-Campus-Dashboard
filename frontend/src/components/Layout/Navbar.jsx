@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
-    MapPin, Calendar, BookOpen, Menu, X, Bell, User,
+    MapPin, Calendar, Menu, X, Bell,
     Bookmark, Search, Home
 } from 'lucide-react';
 import './Navbar.css';
@@ -16,7 +16,6 @@ const Navbar = () => {
         { name: 'Home', path: '/', icon: <Home size={18} /> },
         { name: 'Map', path: '/map', icon: <MapPin size={18} /> },
         { name: 'Calendar', path: '/calendar', icon: <Calendar size={18} /> },
-        { name: 'Resources', path: '/resources', icon: <BookOpen size={18} /> },
     ];
 
     return (

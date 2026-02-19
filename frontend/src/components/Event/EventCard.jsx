@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, MapPin, Clock, Bookmark, Bell, Users, ExternalLink } from 'lucide-react';
 import './EventCard.css';
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, compact = false }) => {
     const [bookmarked, setBookmarked] = useState(false);
     const [reminded, setReminded] = useState(false);
 
@@ -13,6 +13,30 @@ const EventCard = ({ event }) => {
         'Academic': 'tag-yellow',
         'Fest': 'tag-red',
     };
+
+    if (compact) {
+        return (
+            <div className="event-card compact card">
+                <div className="compact-time">
+                    <span className="time-text">{event.time}</span>
+                    <div className="timeline-dot" style={{ background: event.gradient }}></div>
+                </div>
+                <div className="compact-content">
+                    <h3 className="compact-title">{event.title}</h3>
+                    <div className="compact-meta">
+                        <span className="compact-club">{event.club}</span>
+                        <span className="separator">•</span>
+                        <span className="compact-venue"><MapPin size={12} style={{ marginRight: '4px' }} />{event.venue}</span>
+                    </div>
+                </div>
+                <div className="compact-action">
+                    <button className="btn-icon-sm" onClick={() => setBookmarked(!bookmarked)}>
+                        <Bookmark size={16} fill={bookmarked ? 'currentColor' : 'none'} />
+                    </button>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className="event-card card">

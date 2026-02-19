@@ -79,7 +79,8 @@ const CalendarPage = () => {
                                 const dateKey = getDateKey(day);
                                 const events = calendarEvents[dateKey];
                                 const isSelected = selectedDate === dateKey;
-                                const isToday = day === 10 && currentMonth === 1 && currentYear === 2026;
+                                const today = new Date();
+                                const isToday = day === today.getDate() && currentMonth === today.getMonth() && currentYear === today.getFullYear();
 
                                 return (
                                     <button
